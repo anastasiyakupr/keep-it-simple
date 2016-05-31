@@ -16,6 +16,10 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/src/index.html');
 });
 
+app.get('/css/app.css', function(req, res) {
+    res.sendFile(__dirname + '/src/css/app.css');
+});
+
 app.listen(8080, function(error) {
     if (error) {
         console.error(error);
