@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
+/*eslint-disable no-unused-vars*/
+import {Provider} from 'react-redux';
+import {Grid} from 'react-bootstrap';
+
+import Footer from './shared/components/footer';
+/*eslint-enable no-unused-vars*/
+
 
 function counter(state = 0, action) {
     switch (action.type) {
@@ -25,12 +32,16 @@ store.dispatch({type: 'INCREMENT'});
 store.dispatch({type: 'DECREMENT'});
 
 
-class Hi extends React.Component { // eslint-disable-line no-unused-vars
-    render() {
-        return (
-            <h1>Hi</h1>
-        );
-    }
-}
+const App = () => ( // eslint-disable-line no-unused-vars
+    <Grid>
+        <hr />
+        <Footer />
+    </Grid>
+);
 
-ReactDOM.render(<Hi />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
