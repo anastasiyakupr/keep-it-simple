@@ -1,0 +1,44 @@
+import React from 'react';
+
+/*eslint-disable no-unused-vars*/
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
+/*eslint-enable no-unused-vars*/
+
+
+const Header = ({user, onSignin, onSignout}) => {
+    var auth;
+
+    if (user !== undefined) {
+        auth = <NavItem onClick={onSignout}>Sign out</NavItem>;
+    } else {
+        auth = <NavItem onClick={onSignin}>Sign in</NavItem>;
+    }
+
+    return (
+        <Navbar inverse fixedTop>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <a href="/">Keep It Simple Blog</a>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
+                <Nav>
+                    <NavItem disabled>About</NavItem>
+                    <NavItem disabled>Contact</NavItem>
+                </Nav>
+                <Nav pullRight>
+                    {auth}
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    );
+};
+
+Header.propTypes = {
+    onSignin: React.PropTypes.func,
+    onSignout: React.PropTypes.func,
+    user: React.PropTypes.object
+};
+
+export default Header;

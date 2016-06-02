@@ -6,6 +6,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {Grid} from 'react-bootstrap';
 
+import Header from './shared/components/header';
 import Footer from './shared/components/footer';
 /*eslint-enable no-unused-vars*/
 
@@ -34,6 +35,7 @@ store.dispatch({type: 'DECREMENT'});
 
 const App = () => ( // eslint-disable-line no-unused-vars
     <Grid>
+        <Header />
         <hr />
         <Footer />
     </Grid>
