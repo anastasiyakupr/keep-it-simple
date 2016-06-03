@@ -15,7 +15,8 @@
         "vars": "all",
         "args": "after-used"
       }
-    ]
+    ],
+    "react/display-name": 0
   },
   "env": {
     "browser": true,
@@ -23,7 +24,8 @@
   },
   "extends": [
     "eslint:recommended",
-    "defaults/configurations/google"
+    "defaults/configurations/google",
+    "plugin:react/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
