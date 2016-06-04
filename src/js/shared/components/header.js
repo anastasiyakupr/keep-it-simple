@@ -1,8 +1,5 @@
 import React from 'react';
-
-/*eslint-disable no-unused-vars*/
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
-/*eslint-enable no-unused-vars*/
 
 
 const Header = ({user, onSignin, onSignout}) => {
