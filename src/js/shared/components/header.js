@@ -33,8 +33,8 @@ const Header = ({user, onSignin, onSignout}) => {
 };
 
 Header.propTypes = {
-    onSignin: React.PropTypes.func,
-    onSignout: React.PropTypes.func,
+    onSignin: React.PropTypes.func.isRequired,
+    onSignout: React.PropTypes.func.isRequired,
     user: React.PropTypes.object
 };
 

@@ -4,7 +4,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {Grid} from 'react-bootstrap';
 
-import Header from './shared/components/header';
+import Header from './shared/containers/header';
 import Footer from './shared/components/footer';
 
 
