@@ -4,6 +4,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {Grid} from 'react-bootstrap';
 
+import Posts from './posts/components/posts';
 import Header from './shared/containers/header';
 import Footer from './shared/components/footer';
 
@@ -24,6 +25,7 @@ store.subscribe(() => console.log(store.getState()));
 const App = () => (
     <Grid>
         <Header />
+        <Posts />
         <hr />
         <Footer />
     </Grid>
