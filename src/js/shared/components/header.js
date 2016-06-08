@@ -1,14 +1,19 @@
 import React from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap';
 
 
-const Header = ({user, onSignin, onSignout}) => {
+const Header = ({user, showSignin, onSignout}) => {
     var auth;
 
-    if (user !== undefined) {
+    if (user) {
         auth = <NavItem onClick={onSignout}>Sign out</NavItem>;
-    } else {
-        auth = <NavItem onClick={onSignin}>Sign in</NavItem>;
+    } else if (showSignin) {
+        auth = (
+            <LinkContainer to="/signin">
+                <NavItem>Sign in</NavItem>
+            </LinkContainer>
+        );
     }
 
     return (
@@ -33,8 +38,8 @@ const Header = ({user, onSignin, onSignout}) => {
 };
 
 Header.propTypes = {
-    onSignin: React.PropTypes.func.isRequired,
     onSignout: React.PropTypes.func.isRequired,
+    showSignin: React.PropTypes.bool.isRequired,
     user: React.PropTypes.object
 };
 
