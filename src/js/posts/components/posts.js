@@ -1,6 +1,25 @@
 import React from 'react';
 
+import Layout from '../../shared/components/layout';
 
-export default () => (
-    <h1>Posts</h1>
-);
+
+const Posts = ({user}) => {
+    const sidebar = (
+        <div>
+        </div>
+    );
+
+    return (
+        <Layout sidebar={sidebar}>
+            <h1>
+                Keep It Simple <small>Welcome</small>
+            </h1>
+        </Layout>
+    );
+};
+
+Posts.propTypes = {
+    user: React.PropTypes.object
+};
+
+export default Posts;
