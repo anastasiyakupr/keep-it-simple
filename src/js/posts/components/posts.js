@@ -1,11 +1,13 @@
 import React from 'react';
 
 import Layout from '../../shared/components/layout';
+import SignUpWell from '../../shared/components/signup-well';
 
 
 const Posts = ({user}) => {
     const sidebar = (
         <div>
+            <SignUpWell user={user} />
         </div>
     );
 
