@@ -1,10 +1,22 @@
-export const SIGN_IN = 'SIGN_IN';
-export const SIGN_OUT = 'SIGN_OUT';
+import api from './api/mock';
 
-export function signin() {
-    return {type: SIGN_IN};
-}
+import {
+    DAILY_QUOTE_REQUEST,
+    DAILY_QUOTE_SUCCESS,
+    SIGN_OUT
+} from './constants';
+
 
 export function signout() {
     return {type: SIGN_OUT};
+}
+
+export function dailyQuote() {
+    return dispatch => {
+        dispatch({type: DAILY_QUOTE_REQUEST});
+        return api.dailyQuote().then(respose => dispatch({
+            type: DAILY_QUOTE_SUCCESS,
+            quote: respose
+        }));
+    };
 }

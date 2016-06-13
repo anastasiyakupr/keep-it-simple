@@ -1,6 +1,8 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 
+import QuoteWell from '../containers/quote-well';
+
 
 const Layout = ({children, sidebar}) => (
     <Row>
@@ -12,6 +14,7 @@ const Layout = ({children, sidebar}) => (
         <Col md={4}>
             <aside>
                 {sidebar}
+                <QuoteWell />
             </aside>
         </Col>
     </Row>

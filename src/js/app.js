@@ -6,6 +6,7 @@ import {Router, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 import {Provider} from 'react-redux';
 
+import * as actions from './shared/actions';
 import reducers from './reducers';
 import routes from './routes';
 
@@ -15,6 +16,8 @@ const store = createStore(reducers, {},
     window.devToolsExtension ?
         compose(enhancer, window.devToolsExtension()) :
         enhancer);
+
+store.dispatch(actions.dailyQuote());
 
 ReactDOM.render(
     <Provider store={store}>
