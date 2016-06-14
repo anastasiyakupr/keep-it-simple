@@ -2,16 +2,21 @@ import React from 'react';
 import {Grid} from 'react-bootstrap';
 import {Route} from 'react-router';
 
-import SignIn from './membership/components/signin';
+import AuthInfo from './membership/containers/auth-info';
+import SignIn from './membership/containers/signin';
 import SignUp from './membership/components/signup';
+
 import Posts from './posts/components/posts';
+
 import Footer from './shared/components/footer';
-import Header from './shared/containers/header';
+import Header from './shared/components/header';
 
 
 const App = ({children}) => (
     <Grid>
-        <Header />
+        <Header>
+            <AuthInfo />
+        </Header>
         {children}
         <hr />
         <Footer />
