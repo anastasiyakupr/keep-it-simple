@@ -1,4 +1,4 @@
-import api from './api/mock';
+import api from 'api';
 
 import {
     DAILY_QUOTE_REQUEST,

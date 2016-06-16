@@ -13,6 +13,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].[chunkhash:5].js'
     },
+    resolve: {
+        alias: {
+            api: './api/' + (process.env.API || 'mock')
+        }
+    },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
             name: 'lib',
