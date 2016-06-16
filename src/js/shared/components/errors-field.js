@@ -2,25 +2,36 @@ import React from 'react';
 import {HelpBlock} from 'react-bootstrap';
 
 
-const Field = ({errors}) => {
-    if (!errors) {
-        return null;
-    }
+class ErrorsField extends React.Component {
+    render() {
+        let errors = this.props.errors || this.context.errors;
 
-    if (Array.isArray(errors)) {
-        errors = errors[errors.length - 1];
-    }
+        if (!errors) {
+            return null;
+        }
 
-    return (
-        <HelpBlock>{errors}</HelpBlock>
-    );
+        errors = errors[this.props.name];
+        if (!errors) {
+            return null;
+        }
+
+        if (Array.isArray(errors)) {
+            errors = errors[errors.length - 1];
+        }
+
+        return (
+            <HelpBlock>{errors}</HelpBlock>
+        );
+    }
+}
+
+ErrorsField.propTypes = {
+    name: React.PropTypes.string.isRequired,
+    errors: React.PropTypes.object
 };
 
-Field.propTypes = {
-    errors: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.arrayOf(React.PropTypes.string)
-    ])
+ErrorsField.contextTypes = {
+    errors: ErrorsField.propTypes.errors
 };
 
-export default Field;
+export default ErrorsField;

@@ -15,6 +15,10 @@ class SignIn extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    getChildContext() {
+        return {errors: this.props.errors};
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.onSubmit({
@@ -24,7 +28,7 @@ class SignIn extends React.Component {
     }
 
     render() {
-        const {pending, errors} = this.props;
+        const {pending, errors = {}} = this.props;
 
         return (
             <Layout sidebar={<SignUpWell/>}>
@@ -35,7 +39,7 @@ class SignIn extends React.Component {
                     appreciated.
                 </p>
                 <hr/>
-                <Errors.Summary errors={errors} />
+                <Errors.Summary />
                 <Well>
                     <form autoComplete="off"
                           onSubmit={!pending && this.handleSubmit}>
@@ -43,13 +47,13 @@ class SignIn extends React.Component {
                             <FormControl ref="username" placeholder="Username"
                                type="text" />
                             <FormControl.Feedback />
-                            <Errors.Field errors={errors.username} />
+                            <Errors.Field name="username" />
                         </FormGroup>
                         <FormGroup validationState={errors.password && 'error'}>
                             <FormControl ref="password" placeholder="Password"
                                type="password" />
                             <FormControl.Feedback />
-                            <Errors.Field errors={errors.password} />
+                            <Errors.Field name="password" />
                         </FormGroup>
                         <Button disabled={pending} bsStyle="primary"
                                 type="submit">
@@ -67,6 +71,10 @@ SignIn.propTypes = {
     pending: React.PropTypes.bool.isRequired,
     errors: React.PropTypes.object.isRequired,
     onSubmit: React.PropTypes.func.isRequired,
+};
+
+SignIn.childContextTypes = {
+    errors: SignIn.propTypes.errors
 };
 
 export default SignIn;
