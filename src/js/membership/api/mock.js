@@ -31,5 +31,7 @@ export default {
         return resolve({username: u.username});
     },
 
+    signup: () => reject({__ERROR__: [samples.errors.unavailable]}),
+
     signout: resolve
 };

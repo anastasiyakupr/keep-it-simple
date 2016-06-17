@@ -4,7 +4,7 @@ import {Route} from 'react-router';
 
 import AuthInfo from './membership/containers/auth-info';
 import SignIn from './membership/containers/signin';
-import SignUp from './membership/components/signup';
+import SignUp from './membership/containers/signup';
 
 import Posts from './posts/components/posts';
 
