@@ -6,7 +6,7 @@ import AuthInfo from './membership/containers/auth-info';
 import SignIn from './membership/containers/signin';
 import SignUp from './membership/containers/signup';
 
-import Posts from './posts/components/posts';
+import Posts from './posts/containers/posts';
 
 import Footer from './shared/components/footer';
 import Header from './shared/components/header';
