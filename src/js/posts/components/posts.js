@@ -2,6 +2,7 @@ import React from 'react';
 
 import Layout from '../../shared/components/layout';
 import SignUpWell from '../../shared/components/signup-well';
+import Paging from '../../shared/components/paging';
 import SearchPostsWell from './search-posts-well';
 import PostItem from './post-item';
 
@@ -40,6 +41,9 @@ class Posts extends React.Component {
                     pager.items.map((p, i) =>
                         <PostItem key={i} item={p} onClick={onItem} />)
                 }
+                <Paging pending={pending}
+                        paging={pager.paging}
+                        onSelect={page => onSearch(q, page)} />
             </Layout>
         );
     }
@@ -55,7 +59,11 @@ Posts.propTypes = {
     q: React.PropTypes.string,
     pending: React.PropTypes.bool.isRequired,
     pager: React.PropTypes.shape({
-        items: React.PropTypes.array
+        items: React.PropTypes.array,
+        paging: React.PropTypes.shape({
+            before: React.PropTypes.number,
+            after: React.PropTypes.number
+        })
     }),
     user: React.PropTypes.object,
     onSearch: React.PropTypes.func,
