@@ -9,15 +9,15 @@ import {
 
 
 export const searchPosts = (q = '', page = 0) => (dispatch, getState) => {
-    const state = getState().posts.posts;
-    const location = {
-        pathname: '/posts',
-        query: {}
-    };
+    const state = getState();
+    const locationBeforeTransitions = state.routing.locationBeforeTransitions;
+    const posts = state.posts.posts;
+    const location = {query: {}};
 
     if (q == '') {
         location.pathname = '/';
     } else {
+        location.pathname = '/posts';
         location.query.q = q;
     }
 
@@ -25,9 +25,13 @@ export const searchPosts = (q = '', page = 0) => (dispatch, getState) => {
         location.query.page = page;
     }
 
-    dispatch(push(location));
+    if (location.pathname != locationBeforeTransitions.pathname ||
+            location.query.q != locationBeforeTransitions.query.q ||
+            location.query.page != locationBeforeTransitions.query.page) {
+        dispatch(push(location));
+    }
 
-    if (!state.pending && state.q == q && state.page == page) {
+    if (posts.pending || posts.q == q && posts.page == page) {
         return null;
     }
 
