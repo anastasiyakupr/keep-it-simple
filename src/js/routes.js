@@ -7,6 +7,7 @@ import SignIn from './membership/containers/signin';
 import SignUp from './membership/containers/signup';
 
 import Posts from './posts/containers/posts';
+import Post from './posts/containers/post';
 
 import Footer from './shared/components/footer';
 import Header from './shared/components/header';
@@ -31,6 +32,7 @@ export default (
     <Route component={App}>
         <Route path="/" component={Posts} />
         <Route path="posts" component={Posts} />
+        <Route path="post/:slug" component={Post} />
         <Route path="signin" component={SignIn} />
         <Route path="signup" component={SignUp} />
     </Route>

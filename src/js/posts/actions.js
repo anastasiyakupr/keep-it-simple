@@ -4,7 +4,9 @@ import api from 'api';
 
 import {
     POSTS_REQUEST,
-    POSTS_SUCCESS
+    POSTS_SUCCESS,
+    POST_REQUEST,
+    POST_SUCCESS
 } from './constants';
 
 
@@ -45,4 +47,35 @@ export const searchPosts = (q = '', page = 0) => (dispatch, getState) => {
             type: POSTS_SUCCESS,
             pager: respose
         }));
+};
+
+export const getPost = slug => (dispatch, getState) => {
+    const post = getState().posts.post;
+    const pathname = '/post/' + slug;
+
+    const navigate = () => {
+        const routing = getState().routing;
+
+        if (pathname !== routing.locationBeforeTransitions.pathname) {
+            dispatch(push(pathname));
+        }
+    };
+
+    if (post.pending || post.slug === slug) {
+        navigate();
+        return null;
+    }
+
+    dispatch({
+        type: POST_REQUEST,
+        slug: slug
+    });
+    return api.getPost(slug).then(
+        respose => {
+            dispatch({
+                type: POST_SUCCESS,
+                post: respose
+            });
+            navigate();
+        });
 };

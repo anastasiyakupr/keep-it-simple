@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {searchPosts} from '../actions';
+import {searchPosts, getPost} from '../actions';
 import Posts from '../components/posts';
 
 
@@ -16,6 +16,7 @@ export default connect(
         };
     },
     dispatch => ({
-        onSearch: (q, page) => dispatch(searchPosts(q, page))
+        onSearch: (q, page) => dispatch(searchPosts(q, page)),
+        onItem: slug => dispatch(getPost(slug))
     })
 )(Posts);

@@ -1,10 +1,11 @@
 import {combineReducers} from 'redux';
 
 import {
-    POSTS_REQUEST, POSTS_SUCCESS, POSTS_FAILURE
+    POSTS_REQUEST, POSTS_SUCCESS, POSTS_FAILURE,
+    POST_REQUEST, POST_SUCCESS, POST_FAILURE
 } from './constants';
 
-const initialItemsState = {
+const initialPostsState = {
     q: null,
     page: 0,
     pending: false,
@@ -13,7 +14,7 @@ const initialItemsState = {
     }
 };
 
-const posts = (state = initialItemsState, action) => {
+const posts = (state = initialPostsState, action) => {
     switch (action.type) {
     case POSTS_REQUEST:
         return Object.assign({}, state, {
@@ -35,4 +36,33 @@ const posts = (state = initialItemsState, action) => {
     }
 };
 
-export default combineReducers({posts});
+const initialPostState = {
+    pending: false,
+    slug: null,
+    post: {
+        author: {}
+    }
+};
+
+const post = (state = initialPostState, action) => {
+    switch (action.type) {
+    case POST_REQUEST:
+        return Object.assign({}, state, initialPostState, {
+            pending: true,
+            slug: action.slug
+        });
+    case POST_SUCCESS:
+        return Object.assign({}, state, {
+            pending: false,
+            post: action.post
+        });
+    case POST_FAILURE:
+        return Object.assign({}, state, {
+            pending: false
+        });
+    default:
+        return state;
+    }
+};
+
+export default combineReducers({posts, post});
