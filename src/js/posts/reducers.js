@@ -40,8 +40,10 @@ const initialPostState = {
     pending: false,
     slug: null,
     post: {
-        author: {}
-    }
+        author: {},
+        permissions: {}
+    },
+    errors: {}
 };
 
 const post = (state = initialPostState, action) => {

@@ -10,10 +10,13 @@ export default connect(
 
         return {
             pending: post.pending,
-            post: post.post
+            post: post.post,
+            errors: post.errors,
+            authenticated: !!state.membership.auth.user
         };
     },
     dispatch => ({
         onGetPost: slug => dispatch(getPost(slug))
+        // onComment: message => dispatch(addComment(message))
     })
 )(Post);

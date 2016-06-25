@@ -5,6 +5,8 @@ import Layout from '../../shared/components/layout';
 import LeadBreak from '../../shared/components/lead-break';
 import {formatDateOrTime} from '../../shared/utils';
 
+import CommentWell from './comment-well';
+
 
 class Post extends React.Component {
     constructor(props) {
@@ -12,15 +14,14 @@ class Post extends React.Component {
     }
 
     componentDidMount() {
-        const {onGetPost} = this.props;
-
-        if (onGetPost) {
-            onGetPost(this.props.routeParams.slug);
+        if (this.props.onGetPost) {
+            this.props.onGetPost(this.props.routeParams.slug);
         }
     }
 
     render() {
-        const {post} = this.props;
+        const {pending, post, authenticated, errors} = this.props,
+            permitted = post.permissions && post.permissions.create_comment;
 
         return (
             <Layout>
@@ -39,12 +40,18 @@ class Post extends React.Component {
                     <LeadBreak text={post.message} />
                 </article>
                 <hr/>
+                <CommentWell authenticated={authenticated}
+                             permitted={permitted}
+                             disabled={pending}
+                             errors={errors}
+                             onSubmit={this.onComment} />
             </Layout>
         );
     }
 }
 
 Post.propTypes = {
+    pending: React.PropTypes.bool,
     post: React.PropTypes.shape({
         title: React.PropTypes.string,
         author: React.PropTypes.shape({
@@ -54,10 +61,13 @@ Post.propTypes = {
         'created_on': React.PropTypes.string,
         message: React.PropTypes.string
     }),
+    errors: React.PropTypes.object,
+    authenticated: React.PropTypes.bool,
     routeParams: React.PropTypes.shape({
         slug: React.PropTypes.string.isRequired
     }),
-    onGetPost: React.PropTypes.func
+    onGetPost: React.PropTypes.func,
+    onComment: React.PropTypes.func
 };
 
 export default Post;
