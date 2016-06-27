@@ -6,6 +6,7 @@ import LeadBreak from '../../shared/components/lead-break';
 import {formatDateOrTime} from '../../shared/utils';
 
 import CommentWell from './comment-well';
+import Comments from './comments';
 
 
 class Post extends React.Component {
@@ -45,6 +46,7 @@ class Post extends React.Component {
                              disabled={pending}
                              errors={errors}
                              onSubmit={this.onComment} />
+                <Comments items={post.comments} />
             </Layout>
         );
     }
