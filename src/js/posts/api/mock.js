@@ -24,9 +24,10 @@ export default {
                 slug: p.slug,
                 title: p.title,
                 author: {
-                    first_name: a.first_name, last_name: a.last_name
+                    'first_name': a.first_name,
+                    'last_name': a.last_name
                 },
-                created_on: p.created_on,
+                'created_on': p.created_on,
                 message: _.trancateWords(p.message, 40)
             };
         }));
@@ -44,13 +45,14 @@ export default {
         return _.resolve({
             slug: p.slug,
             title: p.title,
-            created_on: p.created_on,
+            'created_on': p.created_on,
             author: {
-                first_name: a.first_name, last_name: a.last_name
+                'first_name': a.first_name,
+                'last_name': a.last_name
             },
             message: p.message,
             permissions: {
-                create_comment: p.permissions && p.permissions.create_comment
+                'create_comment': p.permissions && p.permissions.create_comment
             },
             comments: samples.comments.filter(c => c.post_id === p.id).map(
                 c => {
@@ -58,19 +60,19 @@ export default {
 
                     return {
                         author: {
-                            first_name: ca.first_name,
-                            last_name: ca.last_name,
-                            gravatar_hash: ca.gravatar_hash
+                            'first_name': ca.first_name,
+                            'last_name': ca.last_name,
+                            'gravatar_hash': ca.gravatar_hash
                         },
-                        created_on: c.created_on,
+                        'created_on': c.created_on,
                         message: c.message,
                         moderated: c.moderated
                     };
                 })
         });
+    },
+
+    addComment: function() {
+        return _.resolve();
     }
 };
-
-/*
- eslint camelcase:0
-*/
