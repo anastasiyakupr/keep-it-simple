@@ -6,7 +6,9 @@ import {
     POSTS_REQUEST,
     POSTS_SUCCESS,
     POST_REQUEST,
-    POST_SUCCESS
+    POST_SUCCESS,
+    ADD_COMMENT_REQUEST,
+    ADD_COMMENT_SUCCESS
 } from './constants';
 
 
@@ -77,5 +79,22 @@ export const getPost = slug => (dispatch, getState) => {
                 post: respose
             });
             navigate();
+        });
+};
+
+export const addComment = comment => dispatch => {
+    if (!comment) {
+        return null;
+    }
+
+    dispatch({
+        type: ADD_COMMENT_REQUEST,
+        comment: comment
+    });
+    return api.addComment(comment).then(
+        () => {
+            dispatch({
+                type: ADD_COMMENT_SUCCESS
+            });
         });
 };
