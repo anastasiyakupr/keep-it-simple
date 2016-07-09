@@ -16,7 +16,9 @@ class SearchPostsWell extends React.Component {
         if (this.props.onSubmit) {
             const q = ReactDOM.findDOMNode(this.refs.q).value.trim();
 
-            this.props.onSubmit(q);
+            if (q) {
+                this.props.onSubmit(q);
+            }
         }
     }
 
