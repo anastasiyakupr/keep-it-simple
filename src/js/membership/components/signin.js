@@ -28,7 +28,7 @@ class SignIn extends React.Component {
     }
 
     render() {
-        const {pending, errors = {}} = this.props;
+        const {pending, errors} = this.props;
 
         return (
             <Layout sidebar={<SignUpWell/>}>
