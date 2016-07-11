@@ -59,7 +59,8 @@ class CommentWell extends React.Component {
                     <form autoComplete="off"
                           onSubmit={!disabled && this.handleSubmit}>
                         <FormGroup validationState={errors.message && 'error'}>
-                            <FormControl ref="message" rows="3"
+                            <FormControl disabled={disabled}
+                                         ref="message" rows="3"
                                          componentClass="textarea" />
                             <FormControl.Feedback />
                             <Errors.Field name="message" />
