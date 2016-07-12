@@ -21,8 +21,10 @@ class Post extends React.Component {
     }
 
     render() {
-        const {pending, post, authenticated, errors} = this.props,
-            permitted = post.permissions && post.permissions.create_comment;
+        const {
+            pending, post, authenticated, errors, onAddComment
+        } = this.props;
+        const permitted = post.permissions && post.permissions.create_comment;
 
         return (
             <Layout>
@@ -45,7 +47,7 @@ class Post extends React.Component {
                              permitted={permitted}
                              disabled={pending}
                              errors={errors}
-                             onSubmit={this.onComment} />
+                             onSubmit={onAddComment} />
                 <Comments items={post.comments} />
             </Layout>
         );
@@ -69,7 +71,7 @@ Post.propTypes = {
         slug: React.PropTypes.string.isRequired
     }),
     onGetPost: React.PropTypes.func,
-    onComment: React.PropTypes.func
+    onAddComment: React.PropTypes.func
 };
 
 export default Post;
