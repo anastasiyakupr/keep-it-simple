@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {getPost} from '../actions';
+import {getPost, addComment} from '../actions';
 import Post from '../components/post';
 
 
@@ -16,7 +16,7 @@ export default connect(
         };
     },
     dispatch => ({
-        onGetPost: slug => dispatch(getPost(slug))
-        // onComment: message => dispatch(addComment(message))
+        onGetPost: slug => dispatch(getPost(slug)),
+        onAddComment: message => dispatch(addComment(message))
     })
 )(Post);
