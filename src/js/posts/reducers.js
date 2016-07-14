@@ -2,7 +2,8 @@ import {combineReducers} from 'redux';
 
 import {
     POSTS_REQUEST, POSTS_SUCCESS, POSTS_FAILURE,
-    POST_REQUEST, POST_SUCCESS, POST_FAILURE
+    POST_REQUEST, POST_SUCCESS, POST_FAILURE,
+    ADD_COMMENT_REQUEST, ADD_COMMENT_SUCCESS, ADD_COMMENT_FAILURE
 } from './constants';
 
 const initialPostsState = {
@@ -59,6 +60,18 @@ const post = (state = initialPostState, action) => {
             post: action.post
         });
     case POST_FAILURE:
+        return Object.assign({}, state, {
+            pending: false
+        });
+    case ADD_COMMENT_REQUEST:
+        return Object.assign({}, state, {
+            pending: true
+        });
+    case ADD_COMMENT_SUCCESS:
+        return Object.assign({}, state, {
+            pending: false
+        });
+    case ADD_COMMENT_FAILURE:
         return Object.assign({}, state, {
             pending: false
         });
