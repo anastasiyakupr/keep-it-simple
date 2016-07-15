@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+import {LOCATION_CHANGE} from 'react-router-redux';
 
 import {
     SIGN_IN_REQUEST, SIGN_IN_SUCCESS, SIGN_IN_FAILURE,
@@ -15,6 +16,10 @@ const initialAuthState = {
 
 const auth = (state = initialAuthState, action) => {
     switch (action.type) {
+    case LOCATION_CHANGE:
+        return Object.assign({}, state, {
+            errors: {}
+        });
     case SIGN_IN_REQUEST:
     case SIGN_UP_REQUEST:
         return Object.assign({}, state, {
