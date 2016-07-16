@@ -6,9 +6,9 @@ import {Router, browserHistory} from 'react-router';
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
 import {Provider} from 'react-redux';
 
-import * as actions from './shared/actions';
 import reducers from './reducers';
 import routes from './routes';
+import {dailyQuote} from './shared/actions';
 
 
 const enhancer = applyMiddleware(
@@ -19,7 +19,7 @@ const store = createStore(reducers, {},
         compose(enhancer, window.devToolsExtension()) :
         enhancer);
 
-store.dispatch(actions.dailyQuote());
+store.dispatch(dailyQuote());
 
 ReactDOM.render(
     <Provider store={store}>
