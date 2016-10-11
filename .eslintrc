@@ -16,7 +16,8 @@
         "args": "after-used"
       }
     ],
-    "react/display-name": 0
+    "react/display-name": "off",
+    "react/no-find-dom-node": "warn"
   },
   "env": {
     "browser": true,
