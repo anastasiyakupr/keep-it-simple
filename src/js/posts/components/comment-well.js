@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Well, FormGroup, FormControl, Button, Alert} from 'react-bootstrap';
 import {Link} from 'react-router';
 
@@ -19,7 +18,7 @@ class CommentWell extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         if (this.props.onSubmit) {
-            const m = ReactDOM.findDOMNode(this.refs.message).value.trim();
+            const m = this.message.value.trim();
 
             if (m) {
                 this.props.onSubmit(m);
@@ -59,9 +58,9 @@ class CommentWell extends React.Component {
                     <form autoComplete="off"
                           onSubmit={!disabled && this.handleSubmit}>
                         <FormGroup validationState={errors.message && 'error'}>
-                            <FormControl disabled={disabled}
-                                         ref="message" rows="3"
-                                         componentClass="textarea" />
+                            <FormControl rows="3" disabled={disabled}
+                                inputRef={ ref => { this.message = ref; }}
+                                componentClass="textarea" />
                             <FormControl.Feedback />
                             <Errors.Field name="message" />
                         </FormGroup>

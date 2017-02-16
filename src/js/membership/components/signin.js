@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
 import {Well, FormGroup, FormControl, Button} from 'react-bootstrap';
 
@@ -22,8 +21,8 @@ class SignIn extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.onSubmit({
-            username: ReactDOM.findDOMNode(this.refs.username).value,
-            password: ReactDOM.findDOMNode(this.refs.password).value
+            username: this.username.value,
+            password: this.password.value
         });
     }
 
@@ -44,14 +43,16 @@ class SignIn extends React.Component {
                     <form autoComplete="off"
                           onSubmit={!pending && this.handleSubmit}>
                         <FormGroup validationState={errors.username && 'error'}>
-                            <FormControl ref="username" placeholder="Username"
-                               type="text" />
+                            <FormControl
+                                inputRef={ref => { this.username = ref; }}
+                                placeholder="Username" type="text" />
                             <FormControl.Feedback />
                             <Errors.Field name="username" />
                         </FormGroup>
                         <FormGroup validationState={errors.password && 'error'}>
-                            <FormControl ref="password" placeholder="Password"
-                               type="password" />
+                            <FormControl
+                                inputRef={ref => { this.password = ref; }}
+                                placeholder="Password" type="password" />
                             <FormControl.Feedback />
                             <Errors.Field name="password" />
                         </FormGroup>

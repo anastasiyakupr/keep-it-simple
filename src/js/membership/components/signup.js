@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
 import {Well, FormGroup, FormControl, Button} from 'react-bootstrap';
 
@@ -21,12 +20,12 @@ class SignUp extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        console.log(this);
         this.props.onSubmit({
-            email: ReactDOM.findDOMNode(this.refs.email).value,
-            username: ReactDOM.findDOMNode(this.refs.username).value,
-            password: ReactDOM.findDOMNode(this.refs.password).value,
-            'confirm_password': ReactDOM.findDOMNode(
-                this.refs.confirm_password).value
+            email: this.email.value,
+            username: this.username.value,
+            password: this.password.value,
+            'confirm_password': this.confirmPassword.value
         });
     }
 
@@ -46,26 +45,30 @@ class SignUp extends React.Component {
                     <form autoComplete="off"
                           onSubmit={!pending && this.handleSubmit}>
                         <FormGroup validationState={errors.email && 'error'}>
-                            <FormControl ref="email" placeholder="Email"
-                               type="text" />
+                            <FormControl
+                                inputRef={ref => { this.email = ref; }}
+                                placeholder="Email" type="text" />
                             <FormControl.Feedback />
                             <Errors.Field name="email" />
                         </FormGroup>
                         <FormGroup validationState={errors.username && 'error'}>
-                            <FormControl ref="username" placeholder="Username"
-                               type="text" />
+                            <FormControl
+                                inputRef={ref => { this.username = ref; }}
+                                placeholder="Username" type="text" />
                             <FormControl.Feedback />
                             <Errors.Field name="username" />
                         </FormGroup>
                         <FormGroup validationState={errors.password && 'error'}>
-                            <FormControl ref="password" placeholder="Password"
-                               type="password" />
+                            <FormControl
+                                inputRef={ref => { this.password = ref; }}
+                                placeholder="Password" type="password" />
                             <FormControl.Feedback />
                             <Errors.Field name="password" />
                         </FormGroup>
                         <FormGroup validationState={
                                 errors.confirm_password && 'error'}>
-                            <FormControl ref="confirm_password"
+                            <FormControl inputRef={
+                                    ref => { this.confirmPassword = ref; }}
                                 placeholder="Confirm Password"
                                 type="confirm_password" />
                             <FormControl.Feedback />
