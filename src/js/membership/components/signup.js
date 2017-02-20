@@ -20,7 +20,6 @@ class SignUp extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this);
         this.props.onSubmit({
             email: this.email.value,
             username: this.username.value,

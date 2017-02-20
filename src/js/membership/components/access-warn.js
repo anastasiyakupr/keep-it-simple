@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default () => (
+const AccessWarn = () => (
     <div>
         <hr />
         <p className="small">
@@ -15,3 +15,5 @@ export default () => (
         </p>
     </div>
 );
+
+export default AccessWarn;

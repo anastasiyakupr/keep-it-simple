@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap';
 
 const year = new Date().getFullYear();
 
-export default () => (
+const Footer = () => (
     <footer>
         <Row>
             <Col lg={12}>
@@ -15,3 +15,5 @@ export default () => (
         </Row>
     </footer>
 );
+
+export default Footer;
