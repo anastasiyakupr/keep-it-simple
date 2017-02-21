@@ -1,5 +1,5 @@
 import {resolve, reject, first} from '../../shared/mock';
-import samples from 'json!./samples.json';
+import samples from 'json-loader!./samples.json';
 
 
 export default {
