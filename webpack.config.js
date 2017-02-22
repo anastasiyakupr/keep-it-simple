@@ -3,6 +3,7 @@ const path = require('path'),
     webpack = require('webpack'),
     HtmlPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
@@ -26,16 +27,15 @@ module.exports = {
         new HtmlPlugin({
             template: path.resolve(__dirname, 'src/index.html')
         }),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin()
     ],
     module: {
         loaders: [
             {
-                test: /.js$/,
-                loader: 'babel',
+                test: /\.js$/,
+                loader: 'babel-loader',
                 // exclude: /node_modules/,
                 include: path.resolve(__dirname, 'src', 'js'),
                 query: {
