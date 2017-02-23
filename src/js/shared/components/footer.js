@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
+import './footer.scss';
 
 
 const year = new Date().getFullYear();

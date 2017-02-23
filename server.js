@@ -12,10 +12,6 @@ const compiler = webpack(config);
 app.use(require('webpack-dev-middleware')(compiler, {noInfo: true}));
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/src/index.html');
-});
-
 app.get('/css/app.css', function(req, res) {
     res.sendFile(__dirname + '/src/css/app.css');
 });

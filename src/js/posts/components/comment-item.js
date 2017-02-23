@@ -2,7 +2,7 @@ import React from 'react';
 
 import Media from '../../shared/components/media';
 import {formatDateOrTime} from '../../shared/utils';
-
+import './comment-item.scss';
 
 const CommentItem = ({item}) => {
     const gravatarUrl = 'http://www.gravatar.com/avatar/' +

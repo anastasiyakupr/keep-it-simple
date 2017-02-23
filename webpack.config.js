@@ -1,7 +1,8 @@
 const path = require('path'),
     pkg = require('./package.json'),
     webpack = require('webpack'),
-    HtmlPlugin = require('html-webpack-plugin');
+    HtmlPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
@@ -29,7 +30,8 @@ module.exports = {
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new ExtractTextPlugin('css/[name].[contenthash:5].css')
     ],
     module: {
         loaders: [
@@ -47,6 +49,13 @@ module.exports = {
                         }
                     }
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
+                })
             }
         ]
     }

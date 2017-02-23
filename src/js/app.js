@@ -10,6 +10,7 @@ import reducers from './reducers';
 import routes from './routes';
 import {dailyQuote} from './shared/actions';
 
+import './app.scss';
 
 const enhancer = applyMiddleware(
     routerMiddleware(browserHistory),
