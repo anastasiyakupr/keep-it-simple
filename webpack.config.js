@@ -34,20 +34,14 @@ module.exports = {
         new ExtractTextPlugin('css/[name].[contenthash:5].css')
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 // exclude: /node_modules/,
                 include: path.resolve(__dirname, 'src', 'js'),
                 query: {
-                    cacheDirectory: true,
-                    presets: ['react', 'es2015'],
-                    env: {
-                        development: {
-                            presets: ['react-hmre']
-                        }
-                    }
+                    cacheDirectory: true
                 }
             },
             {
