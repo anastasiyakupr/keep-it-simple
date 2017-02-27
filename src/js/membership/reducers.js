@@ -1,11 +1,7 @@
 import {combineReducers} from 'redux';
 import {LOCATION_CHANGE} from 'react-router-redux';
 
-import {
-    SIGN_IN_REQUEST, SIGN_IN_SUCCESS, SIGN_IN_FAILURE,
-    SIGN_UP_REQUEST, SIGN_UP_SUCCESS, SIGN_UP_FAILURE,
-    SIGN_OUT_REQUEST
-} from './constants';
+import * as types from './constants';
 
 
 const initialAuthState = {
@@ -20,26 +16,27 @@ const auth = (state = initialAuthState, action) => {
         return Object.assign({}, state, {
             errors: {}
         });
-    case SIGN_IN_REQUEST:
-    case SIGN_UP_REQUEST:
+    case types.SIGN_IN_REQUEST:
+    case types.SIGN_UP_REQUEST:
         return Object.assign({}, state, {
             pending: true
         });
-    case SIGN_IN_SUCCESS:
-    case SIGN_UP_SUCCESS:
-        return Object.assign({}, state, {
+    case types.SIGN_IN_SUCCESS:
+    case types.SIGN_UP_SUCCESS:
+        return Object.assign({}, {
             pending: false,
             errors: {},
             user: action.user
         });
-    case SIGN_IN_FAILURE:
-    case SIGN_UP_FAILURE:
-        return Object.assign({}, state, {
+    case types.SIGN_IN_FAILURE:
+    case types.SIGN_UP_FAILURE:
+        return Object.assign({}, {
             pending: false,
-            errors: action.errors
+            errors: action.errors,
+            user: null
         });
-    case SIGN_OUT_REQUEST:
-        return Object.assign({}, state, initialAuthState);
+    case types.SIGN_OUT_REQUEST:
+        return Object.assign({}, initialAuthState);
     default:
         return state;
     }
