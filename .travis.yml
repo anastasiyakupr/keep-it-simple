@@ -1,11 +1,16 @@
 language: node_js
 
 node_js:
+    - "4"
     - "6"
 
 install:
     - npm i
 
+env:
+    - NODE_ENV=prod
+
 script:
     - npm run lint
-    - NODE_ENV=prod npm run build
+    - npm test
+    - npm run build
