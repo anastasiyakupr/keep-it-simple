@@ -1,6 +1,6 @@
 import * as _ from '../../shared/mock';
-import samples from 'json-loader!./samples.json';
-import msamples from 'json-loader!../../membership/api/samples.json';
+import samples from './samples.json';
+import msamples from '../../membership/api/samples.json';
 
 
 const findUserById = id => _.first(msamples.users, u => u.id === id);

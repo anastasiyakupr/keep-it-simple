@@ -1,5 +1,5 @@
 import {resolve} from '../mock';
-import samples from 'json-loader!./samples.json';
+import samples from './samples.json';
 
 
 export default {
