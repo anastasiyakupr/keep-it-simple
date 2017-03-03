@@ -34,7 +34,11 @@
     }
   },
   "globals": {
-    "Promise": true
+    "Promise": true,
+    "describe": true,
+    "it": true,
+    "expect": true,
+    "jest": true
   },
   "plugins": [
     "react"
