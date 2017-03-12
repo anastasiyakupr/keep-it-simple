@@ -33,5 +33,29 @@ describe('membership actions', () => {
                 ]);
             });
         });
+
+        it('rejects invalid user', () => {
+            const store = mockStore({});
+
+            return store.dispatch(actions.signin({
+                username: 'test',
+                password: 'invalid'
+            })).then(() => {
+                expect(store.getActions()).toEqual([
+                    {
+                        type: types.SIGN_IN_REQUEST
+                    },
+                    {
+                        type: types.SIGN_IN_FAILURE,
+                        errors: {
+                            '__ERROR__': [
+                                'The username or password provided ' +
+                                'is incorrect.'
+                            ]
+                        }
+                    }
+                ]);
+            });
+        });
     });
 });
