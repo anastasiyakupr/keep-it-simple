@@ -57,5 +57,33 @@ describe('membership actions', () => {
                 ]);
             });
         });
+
+        it('dispatches valid user to root', () => {
+            const store = mockStore({});
+
+            return store.dispatch(actions.signin({
+                username: 'demo',
+                password: 'password'
+            })).then(() => {
+                expect(store.getActions()).toEqual([
+                    {
+                        type: types.SIGN_IN_REQUEST
+                    },
+                    {
+                        type: types.SIGN_IN_SUCCESS,
+                        user: {
+                            username: 'demo'
+                        }
+                    },
+                    {
+                        type: '@@router/CALL_HISTORY_METHOD',
+                        payload: {
+                            method: 'push',
+                            args: ['/']
+                        }
+                    }
+                ]);
+            });
+        });
     });
 });
