@@ -86,4 +86,26 @@ describe('membership actions', () => {
             });
         });
     });
+
+    describe('signup', () => {
+        it('is not implemented', () => {
+            const store = mockStore({});
+
+            return store.dispatch(actions.signup()).then(() => {
+                expect(store.getActions()).toEqual([
+                    {
+                        type: types.SIGN_UP_REQUEST
+                    },
+                    {
+                        type: types.SIGN_UP_FAILURE,
+                        errors: {
+                            '__ERROR__': [
+                                'This feature is not available yet.'
+                            ]
+                        }
+                    }
+                ]);
+            });
+        });
+    });
 });
