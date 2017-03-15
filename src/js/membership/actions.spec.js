@@ -108,4 +108,28 @@ describe('membership actions', () => {
             });
         });
     });
+
+    describe('signout', () => {
+        it('dispatches user to root', () => {
+            const store = mockStore({});
+
+            return store.dispatch(actions.signout()).then(() => {
+                expect(store.getActions()).toEqual([
+                    {
+                        type: types.SIGN_OUT_REQUEST
+                    },
+                    {
+                        type: types.SIGN_OUT_SUCCESS
+                    },
+                    {
+                        type: '@@router/CALL_HISTORY_METHOD',
+                        payload: {
+                            method: 'push',
+                            args: ['/']
+                        }
+                    }
+                ]);
+            });
+        });
+    });
 });
