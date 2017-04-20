@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Media from '../../shared/components/media';
 import {formatDateOrTime} from '../../shared/utils';
@@ -25,15 +26,15 @@ const CommentItem = ({item}) => {
 };
 
 CommentItem.propTypes = {
-    item: React.PropTypes.shape({
-        author: React.PropTypes.shape({
-            'gravatar_hash': React.PropTypes.string,
-            'first_name': React.PropTypes.string,
-            'last_name': React.PropTypes.string
+    item: PropTypes.shape({
+        author: PropTypes.shape({
+            'gravatar_hash': PropTypes.string,
+            'first_name': PropTypes.string,
+            'last_name': PropTypes.string
         }),
-        'created_on': React.PropTypes.string,
-        moderated: React.PropTypes.bool,
-        message: React.PropTypes.string
+        'created_on': PropTypes.string,
+        moderated: PropTypes.bool,
+        message: PropTypes.string
     })
 };
 

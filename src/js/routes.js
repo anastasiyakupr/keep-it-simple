@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Grid} from 'react-bootstrap';
 import {Route} from 'react-router';
 
@@ -25,7 +26,7 @@ const App = ({children}) => (
 );
 
 App.propTypes = {
-    children: React.PropTypes.element.isRequired
+    children: PropTypes.element.isRequired
 };
 
 export default (

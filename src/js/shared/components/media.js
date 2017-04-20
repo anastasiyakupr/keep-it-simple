@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const Media = ({src, heading, children}) => (
@@ -16,9 +17,9 @@ const Media = ({src, heading, children}) => (
 );
 
 Media.propTypes = {
-    src: React.PropTypes.string.isRequired,
-    heading: React.PropTypes.node.isRequired,
-    children: React.PropTypes.node.isRequired
+    src: PropTypes.string.isRequired,
+    heading: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired
 };
 
 export default Media;

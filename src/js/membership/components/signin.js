@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 import {Well, FormGroup, FormControl, Button} from 'react-bootstrap';
 
@@ -69,9 +70,9 @@ class SignIn extends React.Component {
 }
 
 SignIn.propTypes = {
-    pending: React.PropTypes.bool.isRequired,
-    errors: React.PropTypes.object.isRequired,
-    onSubmit: React.PropTypes.func.isRequired,
+    pending: PropTypes.bool.isRequired,
+    errors: PropTypes.object.isRequired,
+    onSubmit: PropTypes.func.isRequired,
 };
 
 SignIn.childContextTypes = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Well, FormGroup, FormControl, Button, Alert} from 'react-bootstrap';
 import {Link} from 'react-router';
 
@@ -76,11 +77,11 @@ class CommentWell extends React.Component {
 }
 
 CommentWell.propTypes = {
-    authenticated: React.PropTypes.bool,
-    permitted: React.PropTypes.bool,
-    disabled: React.PropTypes.bool,
-    errors: React.PropTypes.object,
-    onSubmit: React.PropTypes.func
+    authenticated: PropTypes.bool,
+    permitted: PropTypes.bool,
+    disabled: PropTypes.bool,
+    errors: PropTypes.object,
+    onSubmit: PropTypes.func
 };
 
 CommentWell.childContextTypes = {

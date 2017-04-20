@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Well} from 'react-bootstrap';
 
 
@@ -19,9 +20,9 @@ const QuoteWell = ({quote}) => {
 };
 
 QuoteWell.propTypes = {
-    quote: React.PropTypes.shape({
-        message: React.PropTypes.string.isRequired,
-        author: React.PropTypes.string.isRequired
+    quote: PropTypes.shape({
+        message: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired
     }),
 };
 

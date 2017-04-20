@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Glyphicon, Button} from 'react-bootstrap';
 
 import {formatDateOrTime} from '../../shared/utils';
@@ -48,17 +49,17 @@ class PostItem extends React.Component {
 }
 
 PostItem.propTypes = {
-    item: React.PropTypes.shape({
-        slug: React.PropTypes.string,
-        title: React.PropTypes.string,
-        author: React.PropTypes.shape({
-            'first_name': React.PropTypes.string,
-            'last_name': React.PropTypes.string
+    item: PropTypes.shape({
+        slug: PropTypes.string,
+        title: PropTypes.string,
+        author: PropTypes.shape({
+            'first_name': PropTypes.string,
+            'last_name': PropTypes.string
         }),
-        'created_on': React.PropTypes.string,
-        message: React.PropTypes.string,
+        'created_on': PropTypes.string,
+        message: PropTypes.string,
     }),
-    onClick: React.PropTypes.func
+    onClick: PropTypes.func
 };
 
 export default PostItem;

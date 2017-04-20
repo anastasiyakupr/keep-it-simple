@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Alert, Glyphicon} from 'react-bootstrap';
 
 
@@ -28,10 +29,10 @@ class ErrorsSummary extends React.Component {
 }
 
 ErrorsSummary.propTypes = {
-    errors: React.PropTypes.shape({
-        __ERROR__: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.arrayOf(React.PropTypes.string)
+    errors: PropTypes.shape({
+        __ERROR__: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.arrayOf(React.PropTypes.string)
         ])
     })
 };

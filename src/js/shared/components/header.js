@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 
 
@@ -23,7 +24,7 @@ const Header = ({children}) => (
 );
 
 Header.propTypes = {
-    children: React.PropTypes.node
+    children: PropTypes.node
 };
 
 export default Header;

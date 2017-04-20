@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Row, Col} from 'react-bootstrap';
 
 import QuoteWell from '../containers/quote-well';
@@ -21,8 +22,8 @@ const Layout = ({children, sidebar}) => (
 );
 
 Layout.propTypes = {
-    children: React.PropTypes.node,
-    sidebar: React.PropTypes.node
+    children: PropTypes.node,
+    sidebar: PropTypes.node
 };
 
 export default Layout;

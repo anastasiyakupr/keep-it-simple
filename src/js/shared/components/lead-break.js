@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const LeadBreak = ({text}) => {
@@ -18,7 +19,7 @@ const LeadBreak = ({text}) => {
 };
 
 LeadBreak.propTypes = {
-    text: React.PropTypes.string
+    text: PropTypes.string
 };
 
 export default LeadBreak;

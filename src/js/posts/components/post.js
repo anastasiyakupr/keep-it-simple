@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Glyphicon} from 'react-bootstrap';
 
 import Layout from '../../shared/components/layout';
@@ -55,23 +56,23 @@ class Post extends React.Component {
 }
 
 Post.propTypes = {
-    pending: React.PropTypes.bool,
-    post: React.PropTypes.shape({
-        title: React.PropTypes.string,
-        author: React.PropTypes.shape({
-            'first_name': React.PropTypes.string,
-            'last_name': React.PropTypes.string
+    pending: PropTypes.bool,
+    post: PropTypes.shape({
+        title: PropTypes.string,
+        author: PropTypes.shape({
+            'first_name': PropTypes.string,
+            'last_name': PropTypes.string
         }),
-        'created_on': React.PropTypes.string,
-        message: React.PropTypes.string
+        'created_on': PropTypes.string,
+        message: PropTypes.string
     }),
-    errors: React.PropTypes.object,
-    authenticated: React.PropTypes.bool,
-    routeParams: React.PropTypes.shape({
-        slug: React.PropTypes.string.isRequired
+    errors: PropTypes.object,
+    authenticated: PropTypes.bool,
+    routeParams: PropTypes.shape({
+        slug: PropTypes.string.isRequired
     }),
-    onGetPost: React.PropTypes.func,
-    onAddComment: React.PropTypes.func
+    onGetPost: PropTypes.func,
+    onAddComment: PropTypes.func
 };
 
 export default Post;

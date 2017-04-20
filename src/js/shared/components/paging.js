@@ -1,5 +1,6 @@
 import React from 'react';
-import {Pager, PageItem} from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import {Pager} from 'react-bootstrap';
 
 
 const Paging = ({pending, paging, onSelect}) => {
@@ -20,10 +21,10 @@ const Paging = ({pending, paging, onSelect}) => {
 
     if (paging.after !== undefined) {
         older = (
-            <PageItem next disabled={pending}
+            <Pager.Item next disabled={pending}
                       eventKey={paging.after}>
                 Older &rarr;
-            </PageItem>
+            </Pager.Item>
         );
     }
 
@@ -40,12 +41,12 @@ const Paging = ({pending, paging, onSelect}) => {
 };
 
 Paging.propTypes = {
-    pending: React.PropTypes.bool,
-    paging: React.PropTypes.shape({
-        before: React.PropTypes.number,
-        after: React.PropTypes.number
+    pending: PropTypes.bool,
+    paging: PropTypes.shape({
+        before: PropTypes.number,
+        after: PropTypes.number
     }),
-    onSelect: React.PropTypes.func
+    onSelect: PropTypes.func
 };
 
 Paging.defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {LinkContainer} from 'react-router-bootstrap';
 import {NavItem} from 'react-bootstrap';
 
@@ -20,9 +21,9 @@ const AuthInfo = ({user, show, onSignout}) => {
 };
 
 AuthInfo.propTypes = {
-    user: React.PropTypes.object,
-    show: React.PropTypes.bool.isRequired,
-    onSignout: React.PropTypes.func.isRequired
+    user: PropTypes.object,
+    show: PropTypes.bool.isRequired,
+    onSignout: PropTypes.func.isRequired
 };
 
 export default AuthInfo;

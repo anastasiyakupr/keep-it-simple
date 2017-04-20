@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CommentItem from './comment-item';
 
@@ -19,7 +20,7 @@ const Comments = ({items}) => {
 };
 
 Comments.propTypes = {
-    items: React.PropTypes.arrayOf(React.PropTypes.object)
+    items: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Comments;

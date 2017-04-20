@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {HelpBlock} from 'react-bootstrap';
 
 
@@ -26,8 +27,8 @@ class ErrorsField extends React.Component {
 }
 
 ErrorsField.propTypes = {
-    name: React.PropTypes.string.isRequired,
-    errors: React.PropTypes.object
+    name: PropTypes.string.isRequired,
+    errors: PropTypes.object
 };
 
 ErrorsField.contextTypes = {

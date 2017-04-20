@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Layout from '../../shared/components/layout';
 import SignUpWell from '../../shared/components/signup-well';
@@ -50,24 +51,24 @@ class Posts extends React.Component {
 }
 
 Posts.propTypes = {
-    location: React.PropTypes.shape({
-        query: React.PropTypes.shape({
-            q: React.PropTypes.string,
-            page: React.PropTypes.string
+    location: PropTypes.shape({
+        query: PropTypes.shape({
+            q: PropTypes.string,
+            page: PropTypes.string
         })
     }),
-    q: React.PropTypes.string,
-    pending: React.PropTypes.bool.isRequired,
-    pager: React.PropTypes.shape({
-        items: React.PropTypes.array,
-        paging: React.PropTypes.shape({
-            before: React.PropTypes.number,
-            after: React.PropTypes.number
+    q: PropTypes.string,
+    pending: PropTypes.bool.isRequired,
+    pager: PropTypes.shape({
+        items: PropTypes.array,
+        paging: PropTypes.shape({
+            before: PropTypes.number,
+            after: PropTypes.number
         })
     }),
-    user: React.PropTypes.object,
-    onSearch: React.PropTypes.func,
-    onItem: React.PropTypes.func
+    user: PropTypes.object,
+    onSearch: PropTypes.func,
+    onItem: PropTypes.func
 };
 
 export default Posts;

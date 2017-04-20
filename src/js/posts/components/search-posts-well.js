@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
     Well, InputGroup, FormControl, Button, Glyphicon
 } from 'react-bootstrap';
@@ -44,9 +45,9 @@ class SearchPostsWell extends React.Component {
 }
 
 SearchPostsWell.propTypes = {
-    q: React.PropTypes.string,
-    pending: React.PropTypes.bool,
-    onSubmit: React.PropTypes.func
+    q: PropTypes.string,
+    pending: PropTypes.bool,
+    onSubmit: PropTypes.func
 };
 
 export default SearchPostsWell;

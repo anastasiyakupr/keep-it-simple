@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 import {Well} from 'react-bootstrap';
 
@@ -19,7 +20,7 @@ const SignUpWell = ({user}) => {
 };
 
 SignUpWell.propTypes = {
-    user: React.PropTypes.object
+    user: PropTypes.object
 };
 
 export default SignUpWell;
