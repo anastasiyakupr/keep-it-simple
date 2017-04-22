@@ -32,7 +32,7 @@ ErrorsSummary.propTypes = {
     errors: PropTypes.shape({
         __ERROR__: PropTypes.oneOfType([
             PropTypes.string,
-            PropTypes.arrayOf(React.PropTypes.string)
+            PropTypes.arrayOf(PropTypes.string)
         ])
     })
 };
