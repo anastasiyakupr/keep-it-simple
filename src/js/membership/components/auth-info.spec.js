@@ -1,6 +1,8 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
+import {NavItem} from 'react-bootstrap';
+
 import AuthInfo from './auth-info';
 
 
@@ -19,6 +21,18 @@ describe('membership component', () => {
             );
 
             expect(c.node).toBeNull();
+        });
+
+        it('shows signin link', () => {
+            const props = Object.assign({}, initialProps, {
+                show: true
+            });
+
+            const c = shallow(
+                <AuthInfo {...props} />
+            );
+
+            expect(c.find(NavItem).contains('Sign in')).toBe(true);
         });
     });
 });
