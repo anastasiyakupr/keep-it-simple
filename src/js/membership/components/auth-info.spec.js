@@ -34,5 +34,18 @@ describe('membership component', () => {
 
             expect(c.find(NavItem).contains('Sign in')).toBe(true);
         });
+
+        it('shows signout link', () => {
+            const props = Object.assign({}, initialProps, {
+                show: true,
+                user: {}
+            });
+
+            const c = shallow(
+                <AuthInfo {...props} />
+            );
+
+            expect(c.find(NavItem).contains('Sign out')).toBe(true);
+        });
     });
 });
