@@ -1,3 +1,5 @@
+import {LOCATION_CHANGE} from 'react-router-redux';
+
 import reducers from './reducers';
 import * as types from './constants';
 
@@ -18,5 +20,17 @@ describe('membership reducers', () => {
                 user: null
             }
         }));
+    });
+
+    it('handles location change', () => {
+        expect(reducers({
+            auth: {}
+        }, {
+            type: LOCATION_CHANGE
+        })).toEqual({
+            auth: {
+                errors: {}
+            }
+        });
     });
 });
