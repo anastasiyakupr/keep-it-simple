@@ -33,4 +33,21 @@ describe('membership reducers', () => {
             }
         });
     });
+
+    it('handles pending request', () => {
+        [
+            types.SIGN_IN_REQUEST,
+            types.SIGN_UP_REQUEST
+        ].forEach(type => {
+            expect(reducers({
+                auth: {}
+            }, {
+                type: type
+            })).toEqual({
+                auth: {
+                    pending: true
+                }
+            });
+        });
+    });
 });
