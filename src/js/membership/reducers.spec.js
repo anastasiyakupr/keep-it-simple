@@ -50,4 +50,24 @@ describe('membership reducers', () => {
             });
         });
     });
+
+    it('handles success', () => {
+        [
+            types.SIGN_IN_SUCCESS,
+            types.SIGN_UP_SUCCESS
+        ].forEach(type => {
+            expect(reducers({
+                auth: {}
+            }, {
+                type: type,
+                user: 'user'
+            })).toEqual({
+                auth: {
+                    pending: false,
+                    errors: {},
+                    user: 'user'
+                }
+            });
+        });
+    });
 });
