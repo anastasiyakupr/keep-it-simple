@@ -70,4 +70,26 @@ describe('membership reducers', () => {
             });
         });
     });
+
+    it('handles failure', () => {
+        const errors = {'__ERROR__': ''};
+
+        [
+            types.SIGN_IN_FAILURE,
+            types.SIGN_UP_FAILURE
+        ].forEach(type => {
+            expect(reducers({
+                auth: {}
+            }, {
+                type: type,
+                errors: errors
+            })).toEqual({
+                auth: {
+                    pending: false,
+                    errors: errors,
+                    user: null
+                }
+            });
+        });
+    });
 });
