@@ -44,5 +44,14 @@ describe('membership component', () => {
             expect(c.find(Button).props().disabled).toBe(false);
             expect(c.find('form').props().onSubmit).toBeInstanceOf(Function);
         });
+
+        it('disables button and form submit', () => {
+            const props = setup({pending: true});
+
+            const c = shallow(<SignIn {...props} />);
+
+            expect(c.find(Button).props().disabled).toBe(true);
+            expect(c.find('form').props().onSubmit).toBe(false);
+        });
     });
 });
