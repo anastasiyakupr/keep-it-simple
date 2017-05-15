@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
+import {Button, FormGroup} from 'react-bootstrap';
 import {shallow} from 'enzyme';
 
 import SignIn from './signin';
@@ -52,6 +52,17 @@ describe('membership component', () => {
 
             expect(c.find(Button).props().disabled).toBe(true);
             expect(c.find('form').props().onSubmit).toBe(false);
+        });
+
+        it('resets form group validation state', () => {
+            const props = setup({errors: {}});
+
+            const c = shallow(<SignIn {...props} />);
+            const formGroups = c.find(FormGroup);
+
+            expect(formGroups).toHaveLength(2);
+            formGroups.forEach(fg =>
+                expect(fg.props().validationState).toBeUndefined());
         });
     });
 });
