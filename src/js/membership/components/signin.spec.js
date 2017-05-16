@@ -64,5 +64,21 @@ describe('membership component', () => {
             formGroups.forEach(fg =>
                 expect(fg.props().validationState).toBeUndefined());
         });
+
+        it('shows form group error', () => {
+            const props = setup({
+                errors: {
+                    username: 'x',
+                    password: 'x'
+                }
+            });
+
+            const c = shallow(<SignIn {...props} />);
+            const formGroups = c.find(FormGroup);
+
+            expect(formGroups).toHaveLength(2);
+            formGroups.forEach(fg =>
+                expect(fg.props().validationState).toBe('error'));
+        });
     });
 });
