@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button, FormGroup} from 'react-bootstrap';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 import SignIn from './signin';
 
@@ -79,6 +79,31 @@ describe('membership component', () => {
             expect(formGroups).toHaveLength(2);
             formGroups.forEach(fg =>
                 expect(fg.props().validationState).toBe('error'));
+        });
+
+        it('handles submit', () => {
+            const {props, options} = setup(
+                {
+                    onSubmit: jest.fn()
+                },
+                {
+                    shared: {
+                        quote: {
+                            message: 'm',
+                            author: 'a'
+                        }
+                    }
+                }
+            );
+
+            const c = mount(<SignIn {...props} />, options);
+
+            c.find('form').simulate('submit');
+
+            expect(props.onSubmit).toBeCalledWith({
+                username: '',
+                password: ''
+            });
         });
     });
 });
