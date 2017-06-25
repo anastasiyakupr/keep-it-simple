@@ -23,7 +23,7 @@
   },
   "extends": [
     "eslint:recommended",
-    "defaults/configurations/google",
+    "google",
     "plugin:react/recommended"
   ],
   "parserOptions": {
