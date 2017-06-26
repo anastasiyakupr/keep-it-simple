@@ -13,7 +13,7 @@ const Paging = ({pending, paging, onSelect}) => {
     if (paging.before !== undefined) {
         newer = (
             <Pager.Item previous disabled={pending}
-                      eventKey={paging.before}>
+                eventKey={paging.before}>
                 &larr; Newer
             </Pager.Item>
         );
@@ -22,7 +22,7 @@ const Paging = ({pending, paging, onSelect}) => {
     if (paging.after !== undefined) {
         older = (
             <Pager.Item next disabled={pending}
-                      eventKey={paging.after}>
+                eventKey={paging.after}>
                 Older &rarr;
             </Pager.Item>
         );

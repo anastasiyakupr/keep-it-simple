@@ -43,7 +43,7 @@ class SignUp extends React.Component {
                 <Errors.Summary />
                 <Well>
                     <form autoComplete="off"
-                          onSubmit={!pending && this.handleSubmit}>
+                        onSubmit={!pending && this.handleSubmit}>
                         <FormGroup validationState={errors.email && 'error'}>
                             <FormControl
                                 inputRef={ref => { this.email = ref; }}
@@ -66,16 +66,16 @@ class SignUp extends React.Component {
                             <Errors.Field name="password" />
                         </FormGroup>
                         <FormGroup validationState={
-                                errors.confirm_password && 'error'}>
+                            errors.confirm_password && 'error'}>
                             <FormControl inputRef={
-                                    ref => { this.confirmPassword = ref; }}
-                                placeholder="Confirm Password"
-                                type="confirm_password" />
+                                ref => { this.confirmPassword = ref; }}
+                            placeholder="Confirm Password"
+                            type="confirm_password" />
                             <FormControl.Feedback />
                             <Errors.Field name="confirm_password" />
                         </FormGroup>
                         <Button disabled={pending} bsStyle="primary"
-                                type="submit">
+                            type="submit">
                             Sign Up
                         </Button>
                     </form>

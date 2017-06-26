@@ -45,10 +45,10 @@ class Post extends React.Component {
                 </article>
                 <hr/>
                 <CommentWell authenticated={authenticated}
-                             permitted={permitted}
-                             disabled={pending}
-                             errors={errors}
-                             onSubmit={onAddComment} />
+                    permitted={permitted}
+                    disabled={pending}
+                    errors={errors}
+                    onSubmit={onAddComment} />
                 <Comments items={post.comments} />
             </Layout>
         );

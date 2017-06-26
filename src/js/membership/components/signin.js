@@ -42,7 +42,7 @@ class SignIn extends React.Component {
                 <Errors.Summary />
                 <Well>
                     <form autoComplete="off"
-                          onSubmit={!pending && this.handleSubmit}>
+                        onSubmit={!pending && this.handleSubmit}>
                         <FormGroup validationState={errors.username && 'error'}>
                             <FormControl
                                 inputRef={ref => { this.username = ref; }}
@@ -58,7 +58,7 @@ class SignIn extends React.Component {
                             <Errors.Field name="password" />
                         </FormGroup>
                         <Button disabled={pending} bsStyle="primary"
-                                type="submit">
+                            type="submit">
                             Sign In
                         </Button>
                     </form>

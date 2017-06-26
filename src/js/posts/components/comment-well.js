@@ -57,7 +57,7 @@ class CommentWell extends React.Component {
                 <Well>
                     <h4>Leave a Comment:</h4>
                     <form autoComplete="off"
-                          onSubmit={!disabled && this.handleSubmit}>
+                        onSubmit={!disabled && this.handleSubmit}>
                         <FormGroup validationState={errors.message && 'error'}>
                             <FormControl rows="3" disabled={disabled}
                                 inputRef={ ref => { this.message = ref; }}
@@ -66,7 +66,7 @@ class CommentWell extends React.Component {
                             <Errors.Field name="message" />
                         </FormGroup>
                         <Button disabled={disabled} bsStyle="primary"
-                                type="submit">
+                            type="submit">
                             Submit
                         </Button>
                     </form>

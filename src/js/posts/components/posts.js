@@ -28,7 +28,7 @@ class Posts extends React.Component {
         const sidebar = (
             <div>
                 <SearchPostsWell q={q} pending={pending}
-                                 onSubmit={onSearch} />
+                    onSubmit={onSearch} />
                 <SignUpWell user={user} />
             </div>
         );
@@ -43,8 +43,8 @@ class Posts extends React.Component {
                         <PostItem key={i} item={p} onClick={onItem} />)
                 }
                 <Paging pending={pending}
-                        paging={pager.paging}
-                        onSelect={page => onSearch(q, page)} />
+                    paging={pager.paging}
+                    onSelect={page => onSearch(q, page)} />
             </Layout>
         );
     }
