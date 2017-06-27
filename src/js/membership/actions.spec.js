@@ -5,7 +5,7 @@ import * as actions from './actions';
 import * as types from './constants';
 
 
-const middlewares = [ thunk ];
+const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 
