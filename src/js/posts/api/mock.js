@@ -7,7 +7,7 @@ const findUserById = id => _.first(msamples.users, u => u.id === id);
 
 export default {
     searchPosts: (q = null, page = 0) => {
-        var posts = samples.posts;
+        let posts = samples.posts;
 
         if (q) {
             q = q.toLowerCase();
@@ -18,7 +18,7 @@ export default {
         }
 
         return _.resolve(_.pager(posts, page, 2, p => {
-            var a = findUserById(p.author_id);
+            const a = findUserById(p.author_id);
 
             return {
                 slug: p.slug,

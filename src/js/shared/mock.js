@@ -24,7 +24,7 @@ export const first = (items, predicate) => {
 };
 
 export const nfilter = (items, n, predicate) => {
-    var r = [];
+    const r = [];
 
     for (let d of items) {
         if (predicate(d)) {
@@ -41,10 +41,10 @@ export const nfilter = (items, n, predicate) => {
 };
 
 export const pager = (items, page, size, f) => {
-    var start = page * size,
-        end = start + size,
-        paging = {},
-        r = [];
+    const start = page * size;
+    let end = start + size;
+    const paging = {};
+    const r = [];
 
     if (page > 0) {
         paging.before = page - 1;
@@ -56,7 +56,7 @@ export const pager = (items, page, size, f) => {
         end = items.length;
     }
 
-    for (var i = start; i < end; i++) {
+    for (let i = start; i < end; i++) {
         r.push(f(items[i]));
     }
 

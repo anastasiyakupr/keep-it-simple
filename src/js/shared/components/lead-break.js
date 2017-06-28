@@ -8,10 +8,10 @@ const LeadBreak = ({text}) => {
     }
 
     const p = text.split('\\n\\n');
-    let r = [];
+    const r = [];
 
     r.push(<p key="0" className="lead">{p[0]}</p>);
-    for (var i = 1; i < p.length; i++) {
+    for (let i = 1; i < p.length; i++) {
         r.push(<p key={i}>{p[i]}</p>);
     }
 
