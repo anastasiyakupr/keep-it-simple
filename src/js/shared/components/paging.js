@@ -4,7 +4,8 @@ import {Pager} from 'react-bootstrap';
 
 
 const Paging = ({pending, paging, onSelect}) => {
-    let newer, older;
+    let newer;
+    let older;
 
     if (!paging) {
         return null;

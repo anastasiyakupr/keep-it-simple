@@ -19,8 +19,8 @@ class PostItem extends React.Component {
     }
 
     render() {
-        const p = this.props.item,
-            created = formatDateOrTime(p.created_on);
+        const p = this.props.item;
+        const created = formatDateOrTime(p.created_on);
 
         return (
             <div>
