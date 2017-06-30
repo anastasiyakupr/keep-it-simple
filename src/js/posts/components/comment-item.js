@@ -27,14 +27,14 @@ const CommentItem = ({item}) => {
 
 CommentItem.propTypes = {
     item: PropTypes.shape({
-        author: PropTypes.shape({
+        'author': PropTypes.shape({
             'gravatar_hash': PropTypes.string,
             'first_name': PropTypes.string,
             'last_name': PropTypes.string
         }),
         'created_on': PropTypes.string,
-        moderated: PropTypes.bool,
-        message: PropTypes.string
+        'moderated': PropTypes.bool,
+        'message': PropTypes.string
     })
 };
 

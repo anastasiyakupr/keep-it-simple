@@ -58,13 +58,13 @@ class Post extends React.Component {
 Post.propTypes = {
     pending: PropTypes.bool,
     post: PropTypes.shape({
-        title: PropTypes.string,
-        author: PropTypes.shape({
+        'title': PropTypes.string,
+        'author': PropTypes.shape({
             'first_name': PropTypes.string,
             'last_name': PropTypes.string
         }),
         'created_on': PropTypes.string,
-        message: PropTypes.string
+        'message': PropTypes.string
     }),
     errors: PropTypes.object,
     authenticated: PropTypes.bool,

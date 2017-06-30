@@ -22,9 +22,9 @@ class SignUp extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.onSubmit({
-            email: this.email.value,
-            username: this.username.value,
-            password: this.password.value,
+            'email': this.email.value,
+            'username': this.username.value,
+            'password': this.password.value,
             'confirm_password': this.confirmPassword.value
         });
     }

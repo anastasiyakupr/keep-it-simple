@@ -21,14 +21,14 @@ export default {
             const a = findUserById(p.author_id);
 
             return {
-                slug: p.slug,
-                title: p.title,
-                author: {
+                'slug': p.slug,
+                'title': p.title,
+                'author': {
                     'first_name': a.first_name,
                     'last_name': a.last_name
                 },
                 'created_on': p.created_on,
-                message: _.trancateWords(p.message, 40)
+                'message': _.trancateWords(p.message, 40)
             };
         }));
     },
@@ -43,30 +43,30 @@ export default {
         const a = findUserById(p.author_id);
 
         return _.resolve({
-            slug: p.slug,
-            title: p.title,
+            'slug': p.slug,
+            'title': p.title,
             'created_on': p.created_on,
-            author: {
+            'author': {
                 'first_name': a.first_name,
                 'last_name': a.last_name
             },
-            message: p.message,
-            permissions: {
+            'message': p.message,
+            'permissions': {
                 'create_comment': p.permissions && p.permissions.create_comment
             },
-            comments: samples.comments.filter(c => c.post_id === p.id).map(
+            'comments': samples.comments.filter(c => c.post_id === p.id).map(
                 c => {
                     const ca = findUserById(c.author_id);
 
                     return {
-                        author: {
+                        'author': {
                             'first_name': ca.first_name,
                             'last_name': ca.last_name,
                             'gravatar_hash': ca.gravatar_hash
                         },
                         'created_on': c.created_on,
-                        message: c.message,
-                        moderated: c.moderated
+                        'message': c.message,
+                        'moderated': c.moderated
                     };
                 })
         });

@@ -50,14 +50,14 @@ class PostItem extends React.Component {
 
 PostItem.propTypes = {
     item: PropTypes.shape({
-        slug: PropTypes.string,
-        title: PropTypes.string,
-        author: PropTypes.shape({
+        'slug': PropTypes.string,
+        'title': PropTypes.string,
+        'author': PropTypes.shape({
             'first_name': PropTypes.string,
             'last_name': PropTypes.string
         }),
         'created_on': PropTypes.string,
-        message: PropTypes.string,
+        'message': PropTypes.string,
     }),
     onClick: PropTypes.func
 };
