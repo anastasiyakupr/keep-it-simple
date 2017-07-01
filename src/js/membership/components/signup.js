@@ -46,21 +46,21 @@ class SignUp extends React.Component {
                         onSubmit={!pending && this.handleSubmit}>
                         <FormGroup validationState={errors.email && 'error'}>
                             <FormControl
-                                inputRef={ref => { this.email = ref; }}
+                                inputRef={ref => {this.email = ref;}}
                                 placeholder="Email" type="text" />
                             <FormControl.Feedback />
                             <Errors.Field name="email" />
                         </FormGroup>
                         <FormGroup validationState={errors.username && 'error'}>
                             <FormControl
-                                inputRef={ref => { this.username = ref; }}
+                                inputRef={ref => {this.username = ref;}}
                                 placeholder="Username" type="text" />
                             <FormControl.Feedback />
                             <Errors.Field name="username" />
                         </FormGroup>
                         <FormGroup validationState={errors.password && 'error'}>
                             <FormControl
-                                inputRef={ref => { this.password = ref; }}
+                                inputRef={ref => {this.password = ref;}}
                                 placeholder="Password" type="password" />
                             <FormControl.Feedback />
                             <Errors.Field name="password" />
@@ -68,7 +68,7 @@ class SignUp extends React.Component {
                         <FormGroup validationState={
                             errors.confirm_password && 'error'}>
                             <FormControl inputRef={
-                                ref => { this.confirmPassword = ref; }}
+                                ref => {this.confirmPassword = ref;}}
                             placeholder="Confirm Password"
                             type="confirm_password" />
                             <FormControl.Feedback />

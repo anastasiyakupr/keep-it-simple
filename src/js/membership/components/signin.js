@@ -45,14 +45,14 @@ class SignIn extends React.Component {
                         onSubmit={!pending && this.handleSubmit}>
                         <FormGroup validationState={errors.username && 'error'}>
                             <FormControl
-                                inputRef={ref => { this.username = ref; }}
+                                inputRef={ref => {this.username = ref;}}
                                 placeholder="Username" type="text" />
                             <FormControl.Feedback />
                             <Errors.Field name="username" />
                         </FormGroup>
                         <FormGroup validationState={errors.password && 'error'}>
                             <FormControl
-                                inputRef={ref => { this.password = ref; }}
+                                inputRef={ref => {this.password = ref;}}
                                 placeholder="Password" type="password" />
                             <FormControl.Feedback />
                             <Errors.Field name="password" />
