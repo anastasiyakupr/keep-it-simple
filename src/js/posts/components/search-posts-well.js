@@ -30,8 +30,10 @@ class SearchPostsWell extends React.Component {
                 <h4>Blog Search</h4>
                 <form autoComplete="off" onSubmit={this.handleSubmit}>
                     <InputGroup>
-                        <FormControl inputRef={ ref => {this.q = ref;}}
-                            defaultValue={q} />
+                        <FormControl inputRef={ ref => {
+                            this.q = ref;
+                        }}
+                        defaultValue={q} />
                         <InputGroup.Button>
                             <Button disabled={pending}>
                                 <Glyphicon glyph="search" />

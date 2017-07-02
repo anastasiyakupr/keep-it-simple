@@ -60,7 +60,9 @@ class CommentWell extends React.Component {
                         onSubmit={!disabled && this.handleSubmit}>
                         <FormGroup validationState={errors.message && 'error'}>
                             <FormControl rows="3" disabled={disabled}
-                                inputRef={ ref => {this.message = ref;}}
+                                inputRef={ ref => {
+                                    this.message = ref;
+                                }}
                                 componentClass="textarea" />
                             <FormControl.Feedback />
                             <Errors.Field name="message" />
