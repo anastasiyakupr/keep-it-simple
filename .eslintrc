@@ -15,6 +15,15 @@
         "vars": "all",
         "args": "after-used"
       }
+    ],
+    "no-console": [
+      "error",
+      {
+        allow: [
+          "warn",
+          "error"
+          ]
+      }
     ]
   },
   "env": {

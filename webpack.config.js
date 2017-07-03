@@ -1,8 +1,8 @@
-const path = require('path'),
-    pkg = require('./package.json'),
-    webpack = require('webpack'),
-    HtmlPlugin = require('html-webpack-plugin'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const pkg = require('./package.json');
+const webpack = require('webpack');
+const HtmlPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {

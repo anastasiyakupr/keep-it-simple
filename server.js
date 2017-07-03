@@ -1,5 +1,5 @@
-const config = require('./webpack.config'),
-    webpack = require('webpack');
+const config = require('./webpack.config');
+const webpack = require('webpack');
 
 config.devtool = 'cheap-module-eval-source-map';
 config.entry.hot = 'webpack-hot-middleware/client';
@@ -20,6 +20,6 @@ app.listen(8080, function(error) {
     if (error) {
         console.error(error);
     } else {
-        console.info('Visit http://localhost:8080/');
+        console.warn('Visit http://localhost:8080/');
     }
 });
