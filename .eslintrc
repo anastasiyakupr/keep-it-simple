@@ -16,6 +16,11 @@
         "args": "after-used"
       }
     ],
+    "linebreak-style": 0,
+    "eol-last": 0,
+    "arrow-parens": 0,
+    "comma-dangle": 0,
+    "require-jsdoc": 0,
     "no-console": [
       "error",
       {
