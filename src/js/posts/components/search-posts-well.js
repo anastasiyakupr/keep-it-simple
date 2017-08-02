@@ -35,7 +35,7 @@ class SearchPostsWell extends React.Component {
                         }}
                         defaultValue={q} />
                         <InputGroup.Button>
-                            <Button disabled={pending}>
+                            <Button disabled={pending} type="submit">
                                 <Glyphicon glyph="search" />
                             </Button>
                         </InputGroup.Button>
