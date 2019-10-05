@@ -64,7 +64,11 @@ Post.propTypes = {
             'last_name': PropTypes.string
         }),
         'created_on': PropTypes.string,
-        'message': PropTypes.string
+        'message': PropTypes.string,
+        'permissions': PropTypes.shape({
+            'create_comment': PropTypes.boolean
+        }),
+        'comments': PropTypes.arrayOf(PropTypes.object)
     }),
     errors: PropTypes.object,
     authenticated: PropTypes.bool,

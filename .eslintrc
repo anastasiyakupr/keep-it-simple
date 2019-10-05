@@ -24,7 +24,7 @@
     "no-console": [
       "error",
       {
-        allow: [
+        "allow": [
           "warn",
           "error"
           ]
@@ -40,6 +40,7 @@
     "google",
     "plugin:react/recommended"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -56,5 +57,10 @@
   },
   "plugins": [
     "react"
-  ]
+  ],
+  "settings": {
+    "react": {
+      "version": "15.6"
+    }
+  }
 }

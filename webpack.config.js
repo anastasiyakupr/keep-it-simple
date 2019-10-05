@@ -56,7 +56,6 @@ module.exports = {
             // exclude: /node_modules/,
             include: path.resolve(__dirname, 'src', 'js'),
             query: {
-                presets: ['es2015'],
                 cacheDirectory: true
             }
         },
@@ -64,7 +63,7 @@ module.exports = {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
+                use: ['css-loader']
             })
         }
         ]
